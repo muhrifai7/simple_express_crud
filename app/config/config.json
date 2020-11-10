@@ -22,11 +22,6 @@
     "database": "ddv5e70ivd6o59",
     "host": "ec2-52-20-160-44.compute-1.amazonaws.com",
     "dialect": "postgres",
-    "protocol": "postgres",
-    "operatorsAliases": false,
-    "use_env_variable": "https://express1crud.herokuapp.com/",
-    "dialectOptions": {
-      "ssl": true
-    }
+    "protocol": "postgres"
   }
 }
