@@ -1,5 +1,5 @@
 /**
- * These columns will be generated automatically: 
+ * These columns will be generated automatically:
  * id, title, description, published, createdAt, updatedAt.
  * create a new Post: create(object)
  * find a Post by id: findByPk(id)
@@ -11,17 +11,27 @@
  * These functions will be used in our Controller.
  */
 module.exports = (sequelize, Sequelize) => {
-    const Post = sequelize.define("post", {
-        title: {
-            type: Sequelize.STRING
-        },
-        description: {
-            type: Sequelize.STRING
-        },
-        published: {
-            type: Sequelize.BOOLEAN
-        }
-    });
+  const Post = sequelize.define(
+    "post",
+    {
+      title: {
+        type: Sequelize.STRING,
+      },
+      subtitle: {
+        type: Sequelize.STRING,
+      },
+      description: {
+        type: Sequelize.STRING,
+      },
+      published: {
+        type: Sequelize.BOOLEAN,
+      },
+    },
+    {
+      createdAt: "createdat",
+      updatedAt: "updatedat",
+    }
+  );
 
-    return Post;
-}
+  return Post;
+};
