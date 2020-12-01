@@ -35,7 +35,6 @@ exports.create = (req, res) => {
 // Retrieve all Posts from the database.
 exports.findAll = (req, res) => {
   const title = req.query.title;
-  console.log(title, "===title");
   let condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
   Post.findAll({ where: condition })

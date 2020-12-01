@@ -1,13 +1,7 @@
 "use strict";
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     */
-    return queryInterface.createTable("posts", {
+    await queryInterface.createTable("posts", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -23,31 +17,23 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
       },
-      published: {
-        type: Sequelize.BOOLEAN,
-      },
       author: {
         type: Sequelize.STRING,
       },
+      published: {
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: {
-        type: Sequelize.DATE,
-        field: "createdat",
         allowNull: false,
+        type: Sequelize.DATE,
       },
       updatedAt: {
+        allowNull: false,
         type: Sequelize.DATE,
-        field: "updatedat",
       },
     });
   },
-
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
-    return queryInterface.dropTable("posts");
+    await queryInterface.dropTable("posts");
   },
 };
