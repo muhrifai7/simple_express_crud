@@ -16,8 +16,8 @@ services:
     environment:
       DB_SCHEMA: postgres
       DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_HOST: postgres
+      DB_PASSWORD: root
+      DB_HOST: localhost
     depends_on:
       - postgres
     ports:
