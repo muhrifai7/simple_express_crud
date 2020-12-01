@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "ozcvvcabedtkrz",
-    "password": "cd2648cd0f73083c3a649a47b21c97b14c56c67aae03bc07aa6059aeb8eb403e",
-    "database": "dc5b0cklvojpur",
-    "host": "ec2-34-204-121-199.compute-1.amazonaws.com",
+    "username": "postgres",
+    "password": "admin",
+    "database": "testdb",
+    "host": "localhost",
     "dialect": "postgres",
     "operatorsAliases": false,
     "ssl" : true,
