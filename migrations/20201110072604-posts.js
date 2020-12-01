@@ -17,11 +17,26 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
       },
+      subtitle: {
+        type: Sequelize.STRING,
+      },
       description: {
         type: Sequelize.STRING,
       },
       published: {
         type: Sequelize.BOOLEAN,
+      },
+      author: {
+        type: Sequelize.STRING,
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        field: "createdat",
+        allowNull: false,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        field: "updatedat",
       },
     });
   },
@@ -33,5 +48,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
+    return queryInterface.dropTable("posts");
   },
 };
