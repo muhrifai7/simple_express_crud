@@ -1,6 +1,4 @@
 const express = require("express");
-const socket = require("socket.io");
-
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -29,11 +27,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Sync database
-db.sequelize.sync();
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("Drop and re-sync db.");
+});
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to IDStack REST API." });
+  res.json({ message: "Welcome to Express REST API." });
 });
 
 // Posts Routes
@@ -42,30 +42,30 @@ require("./app/routes/post.routes")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 4000;
 
-const server = app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+app.listen(PORT, () => {
+  console.log(`Server is running port ${PORT}.`);
 });
 
-const io = socket(server);
+// const io = socket(server);
 
-io.on("connection", function (socket) {
-  console.log("Made socket connection");
-  socket.on("new user", function (data) {
-    socket.userId = data;
-    activeUsers.add(data);
-    io.emit("new user", [...activeUsers]);
-  });
+// io.on("connection", function (socket) {
+//   console.log("Made socket connection");
+//   socket.on("new user", function (data) {
+//     socket.userId = data;
+//     activeUsers.add(data);
+//     io.emit("new user", [...activeUsers]);
+//   });
 
-  socket.on("disconnect", () => {
-    activeUsers.delete(socket.userId);
-    io.emit("user disconnected", socket.userId);
-  });
+//   socket.on("disconnect", () => {
+//     activeUsers.delete(socket.userId);
+//     io.emit("user disconnected", socket.userId);
+//   });
 
-  socket.on("chat message", function (data) {
-    io.emit("chat message", data);
-  });
+//   socket.on("chat message", function (data) {
+//     io.emit("chat message", data);
+//   });
 
-  socket.on("typing", function (data) {
-    socket.broadcast.emit("typing", data);
-  });
-});
+//   socket.on("typing", function (data) {
+//     socket.broadcast.emit("typing", data);
+//   });
+// });
