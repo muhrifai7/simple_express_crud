@@ -15,12 +15,11 @@
     "dialect": "postgres",
     "operatorsAliases": false
   },
-  
   "production": {
-    "username": "postgres",
-    "password": "root",
-    "database": "testdb",
-    "host": "localhost",
+    "username": "sxblwvrgrkoiin",
+    "password": "5445034700d573b702e96627ffd98b51e2d288d8ff01551a4be3492bf6813bed",
+    "database": "dafjic41h4hc6r",
+    "host": "ec2-3-214-4-151.compute-1.amazonaws.com",
     "dialect": "postgres",
     "operatorsAliases": false,
     "use_env_variable": "DATABASE_URL"
