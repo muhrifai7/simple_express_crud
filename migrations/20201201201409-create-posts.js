@@ -23,6 +23,28 @@ module.exports = {
       published: {
         type: Sequelize.BOOLEAN,
       },
+
+      categories: {
+        type: Sequelize.STRING,
+      },
+      image_url: {
+        type: Sequelize.STRING,
+      },
+      technology: {
+        type: Sequelize.STRING,
+      },
+      meta_keyword: {
+        type: Sequelize.STRING,
+      },
+      meta_image: {
+        type: Sequelize.STRING,
+      },
+      conclusion: {
+        type: Sequelize.STRING,
+      },
+      command_1: {
+        type: Sequelize.STRING,
+      },
       createdat: {
         allowNull: false,
         type: Sequelize.DATE,

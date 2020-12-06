@@ -20,10 +20,16 @@ exports.create = (req, res) => {
     published: req.body.published ? req.body.published : false,
   };
 
+  console.log(res.status, "================== statussss", post);
+
   // Save Post in the database
   Post.create(post)
     .then((data) => {
-      res.send(data);
+      res.send({
+        code: res.status(200),
+        status: "string",
+        data,
+      });
     })
     .catch((err) => {
       res.status(500).send({
