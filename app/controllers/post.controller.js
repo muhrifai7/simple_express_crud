@@ -18,18 +18,20 @@ exports.create = (req, res) => {
     subtitle: req.body.subtitle,
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
+    author: req.body.author,
+    categories: req.body.categories,
+    image_url: req.body.image_url,
+    technology: req.body.technology,
+    meta_keyword: req.body.meta_keyword,
+    meta_image: req.body.meta_image,
+    conclusion: req.body.conclusion,
+    command_1: req.body.command_1,
   };
-
-  console.log(res.status, "================== statussss", post);
 
   // Save Post in the database
   Post.create(post)
     .then((data) => {
-      res.send({
-        code: res.status(200),
-        status: "string",
-        data,
-      });
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).send({

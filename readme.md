@@ -1,8 +1,12 @@
 # Content
+
 ## Api spec
+
 ## Deployment to heroku
+
 ## Also support run or deploy use Docker-Compose
-* just change host name in db.jonfig with container name or express-potgres
+
+- just change host name in db.jonfig with container name or express-potgres
 
 # API Spec
 
@@ -11,92 +15,96 @@
 All API must use this authentication
 
 Request :
+
 - Header :
-    - X-Api-Key : "your secret api key"
+  - X-Api-Key : "your secret api key"
 
 ## Create Article
 
 Request :
+
 - Method : POST
 - Endpoint : `/api/posts`
 - Header :
-    - Content-Type: application/json
-    - Accept: application/json
+  - Content-Type: application/json
+  - Accept: application/json
 - Body :
 
-```json 
+```json
 {
     "id" : "string, unique",
     "title" : "string",
     "subtitle" : "string",
     "description" : "string"
     "publhised" : "boolean"
-     opsional =>
+     "opsional =>"
     "createdAt" : "string"
     "updatedAt" : "string"
-   
+
 }
 ```
 
 Response :
 
-```json 
+```json
 {
      "id" : "string, unique",
     "title" : "string",
     "subtitle" : "string",
     "description" : "string"
     "publhised" : "boolean"
-     opsional =>
+     "opsional =>"
     "createdAt" : "string"
     "updatedAt" : "string"
-   
+
 }
 ```
 
 ## Get Article
 
 Request :
+
 - Method : GET
 - Endpoint : `/api/posts/{id_posts}`
 - Header :
-    - Accept: application/json
+  - Accept: application/json
 
 Response :
 
-```json 
+```json
 {
-    
+
     "id" : "string, unique",
     "title" : "string",
     "subtitle" : "string",
     "description" : "string"
     "publhised" : "boolean"
-     opsional =>
+     "opsional =>"
     "createdAt" : "string"
     "updatedAt" : "string"
-     
+
 }
 ```
 
 ## Update Article
 
 Request :
+
 - Method : PATCH
 - Endpoint : `/api/posts/{id_product}`
 - Header :
-    - Content-Type: application/json
-    - Accept: application/json
+  - Content-Type: application/json
+  - Accept: application/json
 - Body :
 
-```json 
+```json
 {
     "id" : "string, unique",
     "title" : "string",
     "subtitle" : "string",
     "description" : "string"
     "publhised" : "boolean"
-     opsional =>
+     "opsional =>"
     "createdAt" : "string"
     "updatedAt" : "string"
 }
@@ -104,30 +112,31 @@ Request :
 
 Response :
 
-```json 
+```json
 {
     "id" : "string, unique",
     "title" : "string",
     "subtitle" : "string",
     "description" : "string"
     "publhised" : "boolean"
-     opsional =>
+     "opsional =>"
     "createdAt" : "string"
     "updatedAt" : "string"
-     
+
 }
 ```
 
 ## List Articles
 
 Request :
+
 - Method : GET
 - Endpoint : `/api/posts`
 - Header :
-    - Accept: application/json
+  - Accept: application/json
 - Query Param :
-    - size : number,
-    - page : number
+  - size : number,
+  - page : number
 
 Response :
 
@@ -138,7 +147,7 @@ Response :
     "subtitle" : "string",
     "description" : "string"
     "publhised" : "boolean"
-     opsional =>
+     "opsional =>"
     "createdAt" : "string"
     "updatedAt" : "string"
     },
@@ -148,7 +157,7 @@ Response :
     "subtitle" : "string",
     "description" : "string"
     "publhised" : "boolean"
-     opsional =>
+     "opsional =>"
     "createdAt" : "string"
     "updatedAt" : "string"
     }
@@ -159,28 +168,28 @@ Response :
 ## Delete Product
 
 Request :
+
 - Method : DELETE
 - Endpoint : `/api/posts/{id_posts}`
 - Header :
-    - Accept: application/json
+  - Accept: application/json
 
 Response :
 
-```json 
+```json
 {
-    "code" : "number",
-    "status" : "string"
+  "code": "number",
+  "status": "string"
 }
 ```
 
-
-# Deployment 
+# Deployment
 
 ## you can clone this project
 
 ## Case heroku
 
-```cli 
+```cli
 - open cmd  and make sure heroku installed yet before
 - heroku login
 - cd <your app>
@@ -191,18 +200,19 @@ Response :
 - heroku addons:create heroku-potgres --app potgres_db-app
 - heroku config => postgres://database:password@host:5432/user
 - heroku config:set DATABASE_URL=postgres://database:password@host:5432/user
-- edit db.config.js 
+- edit db.config.js
     module.exports = {
       HOST: <host>,
       USER: <user>,
       PASSWORD: <pass>,
       DB: <db>
     };
-    
- - run npx sequelize db:migrate in local and delete SequelizeMetha in database before update or 
- - run in server heroku 1,heroku run bash
-                        2,run => sequelize db:migrate
-                        
+
+ - run npx sequelize db:migrate --env production in local and delete SequelizeMetha in database if migrate no updated or
+ - run in server heroku after push to heroku
+     1,heroku run bash
+     2,run => sequelize db:migrate
+
  - git add .
  - git commit
  - git push origin master
@@ -213,4 +223,3 @@ Now you can make CRUD operations with our Rest Apis using the url:
 http://localhost:4000/api/posts also database has been conect to sever heroku
 
 or https://<app-name>herokuapp.com/api/posts
-
