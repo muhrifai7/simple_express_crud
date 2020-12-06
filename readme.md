@@ -2,7 +2,7 @@
 ## Api spec
 ## Deployment to heroku
 ## Also support run or deploy use Docker-Compose
-* just change host in  db.jonfig with container name with express-potgres
+* just change host name in db.jonfig with container name or express-potgres
 
 # API Spec
 
