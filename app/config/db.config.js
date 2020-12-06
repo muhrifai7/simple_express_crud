@@ -12,9 +12,9 @@
 //   },
 // };
 module.exports = {
-  HOST: "localhost",
+  HOST: "express-postgres",
   USER: "postgres",
-  PASSWORD: "admin",
+  PASSWORD: "root",
   PORT: 5432,
   DB: "testdb",
   dialect: "postgres",

@@ -1,8 +1,8 @@
 const dbConfig = require("../config/db.config.js");
-
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
+  host: process.env.HOST || dbConfig.HOST,
+  port: process.env.PORT || dbConfig.PORT,
   dialect: dbConfig.dialect,
   operatorAliases: false,
   pool: {

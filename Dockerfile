@@ -17,7 +17,8 @@ COPY . .
 
 # Uses port which is used by the actual application
 EXPOSE 4000
-
+# production
+ENV NODE_ENV=production
 
 # Finally runs the application
 CMD [ "npm","start" ]
